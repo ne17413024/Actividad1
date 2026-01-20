@@ -1,0 +1,322 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FONDO */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTENEDOR */
+.container {
+  width: 100%;
+  padding: 20px;
+}
+
+/* TARJETA */
+.card {
+  max-width: 520px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* TITULO */
+.card h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+/* FORMULARIO */
+.task-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 14px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+.task-form input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.task-form button {
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #667eea;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-form button:hover {
+  background-color: #5563d6;
+}
+
+/* LISTA */
+.task-list {
+  list-style: none;
+}
+
+/* TAREA */
+.task {
+  background-color: #f4f6fb;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-name {
+  font-size: 1.1rem;
+}
+
+/* TAREA COMPLETADA */
+.task.completed {
+  background-color: #e6f4ea;
+}
+
+.task.completed .task-name {
+  text-decoration: line-through;
+  color: #4caf50;
+}
+
+/* BOTONES */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.actions .edit {
+  background-color: #ffca28;
+}
+
+.actions .delete {
+  background-color: #ef5350;
+  color: white;
+}
+
+.actions button:hover {
+  opacity: 0.85;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form button {
+    width: 100%;
+  }
+
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* FONDO */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTENEDOR */
+.container {
+  width: 100%;
+  padding: 20px;
+}
+
+/* TARJETA */
+.card {
+  max-width: 520px;
+  margin: auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* TITULO */
+.card h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+/* FORMULARIO */
+.task-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.task-form input {
+  flex: 1;
+  padding: 14px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+.task-form input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.task-form button {
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #667eea;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.task-form button:hover {
+  background-color: #5563d6;
+}
+
+/* LISTA */
+.task-list {
+  list-style: none;
+}
+
+/* TAREA */
+.task {
+  background-color: #f4f6fb;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-name {
+  font-size: 1.1rem;
+}
+
+/* TAREA COMPLETADA */
+.task.completed {
+  background-color: #e6f4ea;
+}
+
+.task.completed .task-name {
+  text-decoration: line-through;
+  color: #4caf50;
+}
+
+/* BOTONES */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.actions .edit {
+  background-color: #ffca28;
+}
+
+.actions .delete {
+  background-color: #ef5350;
+  color: white;
+}
+
+.actions button:hover {
+  opacity: 0.85;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .task-form {
+    flex-direction: column;
+  }
+
+  .task-form button {
+    width: 100%;
+  }
+
+  .task {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <main class="container">
+    <section class="card">
+      <h1>📋 Gestor de Tareas</h1>
+      <p class="subtitle">Organiza tus actividades diarias</p>
+
+      <!-- Entrada -->
+      <div class="task-form">
+        <input type="text" placeholder="Escribe una tarea..." />
+        <button>➕ Agregar</button>
+      </div>
+
+      <!-- Lista -->
+      <ul class="task-list">
+        <li class="task">
+          <span class="task-name">Ejemplo de tarea</span>
+          <div class="actions">
+            <button class="edit">✏️ Editar</button>
+            <button class="delete">🗑️ Eliminar</button>
+          </div>
+        </li>
+
+        <li class="task completed">
+          <span class="task-name">Tarea completada</span>
+          <div class="actions">
+            <button class="edit">✏️ Editar</button>
+            <button class="delete">🗑️ Eliminar</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>
