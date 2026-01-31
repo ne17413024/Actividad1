@@ -5,9 +5,10 @@ import { Ionicons } from "@expo/vector-icons";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
 
-
-
 import TabNavigation from "./TabNavigation";
+import ajustes from "../screens/ajustes";
+import profile from "../screens/profile";
+
 
 const Drawer = createDrawerNavigator();
 const { width } = Dimensions.get("window");
@@ -50,6 +51,28 @@ export default function DrawerNavigation({ navigation }) {
           title: "Inicio",
           drawerIcon: ({ color, size }) => (
             <Ionicons name="home-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
+        name="Perfil"
+        component={profile}
+        options={{
+          title: "Perfil",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="person-outline" size={size} color={color} />
+          ),
+        }}
+      />
+
+      <Drawer.Screen
+        name="Ajustes"
+        component={ajustes}
+        options={{
+          title: "ajustes",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="cog-outline" size={size} color={color} />
           ),
         }}
       />

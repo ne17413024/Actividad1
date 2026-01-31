@@ -4,6 +4,9 @@ import { Ionicons } from "@expo/vector-icons";
 
 import Home from "../screens/home";
 import Profile from "../screens/profile";
+import agregar from "../screens/agregar";
+import homeStack from "./homeStack";
+import settingStack from "./settingStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,8 +20,10 @@ export default function TabNavigation() {
 
           if (route.name === "Home") {
             iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "Profile") {
-            iconName = focused ? "person" : "person-outline";
+          } else if (route.name === "Agregar") {
+            iconName = focused ? "add-circle-outline" : "add-circle-outline";
+          } else if (route.name === "Setting") {
+            iconName = focused ? "settings-outline" : "settings-outline";
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -27,8 +32,9 @@ export default function TabNavigation() {
         tabBarInactiveTintColor: "#94A3B8",
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Home" component={homeStack} />
+      <Tab.Screen name="Setting" component={settingStack} />
+      <Tab.Screen name="Agregar" component={agregar} />
     </Tab.Navigator>
   );
 }
