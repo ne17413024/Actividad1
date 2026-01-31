@@ -5,8 +5,9 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  Alert,
-  Image 
+  Image,
+  Platform, 
+  Alert
 } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
@@ -19,9 +20,17 @@ export default function Login({ navigation }) {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const showAlert = (title, message) => {
+      if (Platform.OS === "web") {
+        window.alert(`${title}\n\n${message}`);
+      } else {
+        Alert.alert(title, message);
+      }
+    };
+
   const handleLogin = async () => {
     if (!email || !password) {
-      Alert.alert("Error", "Ingresa correo y contraseña");
+      showAlert("Error", "Ingresa correo y contraseña");
       return;
     }
 
@@ -30,7 +39,7 @@ export default function Login({ navigation }) {
       await signInWithEmailAndPassword(auth, email, password);
       navigation.replace("MainApp");
     } catch (error) {
-      Alert.alert("Error", error.message);
+      showAlert("Error", error.message);
     } finally {
       setLoading(false);
     }

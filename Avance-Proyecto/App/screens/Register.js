@@ -5,8 +5,11 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  Alert,
+  Platform, 
+  Alert
 } from "react-native";
+
+// ANTES LOS USABADA PARA REGISTRAR LOS USUARIOS
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
 
@@ -16,14 +19,22 @@ export default function Register({ navigation }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const showAlert = (title, message) => {
+    if (Platform.OS === "web") {
+      window.alert(`${title}\n\n${message}`);
+    } else {
+      Alert.alert(title, message);
+    }
+  };
+
   const handleRegister = async () => {
   if (!email || !password || !confirmPassword) {
-    Alert.alert("Error", "Completa todos los campos");
+    showAlert("Error", "Completa todos los campos");
     return;
   }
 
-  if (password !== confirmPassword) {
-    Alert.alert("Error", "Las contraseñas no coinciden");
+  if (password !== confirmPassword || password.length < 6) {
+    showAlert("Error", "Las contraseñas no coinciden o la contraseña es muy corta minimo 6 caracteres");
     return;
   }
 
@@ -44,15 +55,15 @@ export default function Register({ navigation }) {
     const data = await response.json();
 
     if (!response.ok) {
-      Alert.alert("Error", data.detail || "Error al registrar");
+      showAlert("Error", data.detail || "Error al registrar");
       return;
     }
 
-    Alert.alert("Cuenta creada", data.message);
+    showAlert("Cuenta creada", data.message);
     navigation.goBack();
 
   } catch (error) {
-    Alert.alert("Error", "No se pudo conectar al servidor");
+    showAlert( "No se pudo conectar al servidor");
   } finally {
     setLoading(false);
   }

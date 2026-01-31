@@ -27,6 +27,33 @@ Esta aplicación full-stack permite a los usuarios crear, gestionar y estudiar g
 - **Debian 13**: Sistema operativo del servidor
 - **PM2**: Gestor de procesos para Node.js/Express (usado para el despliegue)
 
+## 🔧 Detalles del Backend
+
+### Arquitectura del Backend
+El backend de esta aplicación está construido utilizando **FastAPI**, un framework web moderno y de alto rendimiento para Python. FastAPI se basa en estándares como OpenAPI y JSON Schema, lo que permite una documentación automática de la API y una validación robusta de datos entrantes y salientes. Utiliza Pydantic para la definición de modelos de datos, asegurando que todas las entradas y salidas cumplan con esquemas estrictos, lo que mejora la fiabilidad y reduce errores en tiempo de ejecución.
+
+#### Tecnologías Clave en el Backend
+- **FastAPI**: Proporciona una API RESTful rápida y eficiente. Soporta operaciones asíncronas, lo que permite manejar múltiples solicitudes concurrentemente sin bloquear el servidor. Incluye características como inyección de dependencias, middleware y soporte nativo para WebSockets si se requiere en futuras expansiones.
+- **Firebase Admin SDK**: Utilizado para la integración con Firebase Authentication y Realtime Database. Permite verificar tokens de autenticación de usuarios, gestionar sesiones y acceder a la base de datos de manera segura desde el servidor.
+- **Pydantic**: Biblioteca para validación de datos y serialización. Define modelos de datos con tipos estrictos, facilitando la validación automática de payloads JSON en las rutas de la API.
+- **Uvicorn**: Servidor ASGI que ejecuta la aplicación FastAPI. Es altamente eficiente y soporta conexiones asíncronas, ideal para aplicaciones que requieren baja latencia.
+- **CORS (Cross-Origin Resource Sharing)**: Implementado mediante el middleware CORSMiddleware de FastAPI. Permite que el frontend, alojado en un dominio diferente (como Netlify), realice solicitudes al backend sin problemas de seguridad del navegador. En la configuración actual, se permiten orígenes específicos como `https://avance-proyecto-dfs.netlify.app` para el frontend desplegado, y `http://localhost:19006` para desarrollo local. Esto incluye permisos para todos los métodos HTTP (GET, POST, PUT, DELETE) y headers, asegurando una comunicación fluida entre frontend y backend.
+
+### Despliegue del Backend
+El backend se despliega en un **VPS (Virtual Private Server)** con las siguientes especificaciones:
+- **Sistema Operativo**: Debian 13 (la versión más reciente de Debian, que ofrece estabilidad, seguridad y actualizaciones regulares).
+- **Recursos**: 1 vCPU y 1 GB de RAM, suficiente para una aplicación de este tamaño que maneja operaciones CRUD básicas y autenticación. Esta configuración es cost-effective para proyectos en desarrollo o de pequeña escala.
+- **Gestor de Procesos**: **PM2**, una herramienta avanzada para la gestión de procesos en entornos de producción. PM2 permite ejecutar aplicaciones Node.js (y en este caso, Python con Uvicorn) de manera persistente, reiniciándolas automáticamente en caso de fallos, balanceando la carga si es necesario, y proporcionando logs detallados. Aunque PM2 es comúnmente asociado con Node.js, se puede usar para cualquier aplicación que se ejecute como un proceso, facilitando el monitoreo y el despliegue continuo.
+- **Contenedorización**: Utiliza Docker para empaquetar la aplicación y sus dependencias, asegurando consistencia entre entornos de desarrollo y producción. El contenedor expone el puerto 8000, donde corre la API.
+
+El enlace del frontend desplegado es `https://avance-proyecto-dfs.netlify.app/`, alojado en Netlify, una plataforma de despliegue continuo para aplicaciones web estáticas y JAMstack. El backend, sin embargo, reside en el VPS mencionado, permitiendo una separación clara entre la lógica del servidor y la interfaz de usuario.
+
+#### Beneficios del Despliegue Actual
+- **Escalabilidad**: Con PM2 y Docker, es fácil escalar la aplicación horizontalmente si aumenta la demanda.
+- **Seguridad**: Debian 13 incluye parches de seguridad actualizados, y el uso de CORS restringe el acceso solo a orígenes confiables.
+- **Mantenimiento**: PM2 facilita el reinicio automático y el monitoreo, reduciendo el tiempo de inactividad.
+- **Integración**: La combinación de FastAPI con Firebase permite una autenticación segura y un almacenamiento de datos en tiempo real, ideal para aplicaciones móviles.
+
 ## 📁 Estructura del Proyecto
 
 ```
