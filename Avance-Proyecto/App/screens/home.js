@@ -57,36 +57,48 @@ export default function Home({ navigation }) {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0F172A",
-    padding: 20,
+    backgroundColor: "#000000",
+    padding: 24,
   },
+
   title: {
-    color: "#fff",
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 16,
+    color: "#FFFFFF",
+    fontSize: 26,
+    fontWeight: "800",
+    marginBottom: 18,
+    letterSpacing: 1,
   },
+
   card: {
-    backgroundColor: "#1E293B",
-    padding: 16,
-    borderRadius: 14,
-    marginBottom: 12,
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+    padding: 18,
+    borderRadius: 16,
+    marginBottom: 14,
   },
+
   guiaNombre: {
-    color: "#38BDF8",
+    color: "#FFFFFF",
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: "700",
+    letterSpacing: 0.4,
   },
+
   preguntas: {
-    color: "#94A3B8",
-    marginTop: 4,
+    color: "#BFBFBF",
+    marginTop: 6,
+    fontSize: 14,
   },
+
   empty: {
-    color: "#94A3B8",
+    color: "#BFBFBF",
     textAlign: "center",
-    marginTop: 40,
+    marginTop: 60,
+    fontSize: 15,
   },
 });

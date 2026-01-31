@@ -83,37 +83,49 @@ export default function Study({ route }) {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0F172A",
-    padding: 20,
+    backgroundColor: "#000000",
+    padding: 24,
   },
+
   title: {
-    color: "#38BDF8",
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
+    color: "#FFFFFF",
+    fontSize: 26,
+    fontWeight: "800",
+    marginBottom: 24,
+    letterSpacing: 1,
   },
+
   card: {
-    backgroundColor: "#020617",
-    padding: 16,
-    borderRadius: 16,
-    marginBottom: 20,
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+    padding: 18,
+    borderRadius: 18,
+    marginBottom: 22,
   },
+
   question: {
-    color: "#fff",
+    color: "#FFFFFF",
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "700",
+    marginBottom: 16,
+    lineHeight: 22,
+  },
+
+  option: {
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: 14,
     marginBottom: 12,
   },
-  option: {
-    padding: 14,
-    borderRadius: 12,
-    marginBottom: 10,
-  },
+
   optionText: {
-    color: "#020617",
-    fontWeight: "bold",
+    color: "#000000",
+    fontSize: 15,
+    fontWeight: "700",
   },
 });

@@ -32,18 +32,40 @@ export default function DrawerNavigation({ navigation }) {
 
   return (
     <Drawer.Navigator
-      screenOptions={{
-        drawerPosition: "right",
-        headerShown: true,
+  screenOptions={{
+    drawerPosition: "right",
+    headerShown: true,
 
-        drawerStyle: {
-          width: width * 0.7, // 70% de la pantalla
-        },
+    headerStyle: {
+      backgroundColor: "#000000",
+    },
+    headerTintColor: "#FFFFFF",
+    headerTitleStyle: {
+      fontWeight: "700",
+      letterSpacing: 1,
+    },
 
-        overlayColor: "rgba(0,0,0,0.3)",
-        
-      }}
-    >
+    drawerStyle: {
+      width: width * 0.7,
+      backgroundColor: "#000000",
+      borderLeftWidth: 1,
+      borderLeftColor: "#FFFFFF",
+    },
+
+    drawerActiveTintColor: "#000000",
+    drawerActiveBackgroundColor: "#FFFFFF",
+
+    drawerInactiveTintColor: "#FFFFFF",
+
+    drawerLabelStyle: {
+      fontSize: 15,
+      fontWeight: "600",
+    },
+
+    overlayColor: "rgba(0,0,0,0.6)",
+  }}
+>
+
       <Drawer.Screen
         name="Tabs"
         component={TabNavigation}

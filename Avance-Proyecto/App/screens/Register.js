@@ -17,27 +17,47 @@ export default function Register({ navigation }) {
   const [loading, setLoading] = useState(false);
 
   const handleRegister = async () => {
-    if (!email || !password || !confirmPassword) {
-      Alert.alert("Error", "Completa todos los campos");
+  if (!email || !password || !confirmPassword) {
+    Alert.alert("Error", "Completa todos los campos");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    Alert.alert("Error", "Las contraseñas no coinciden");
+    return;
+  }
+
+  try {
+    setLoading(true);
+
+    const response = await fetch("http://168.181.187.215:8000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      Alert.alert("Error", data.detail || "Error al registrar");
       return;
     }
 
-    if (password !== confirmPassword) {
-      Alert.alert("Error", "Las contraseñas no coinciden");
-      return;
-    }
+    Alert.alert("Cuenta creada", data.message);
+    navigation.goBack();
 
-    try {
-      setLoading(true);
-      await createUserWithEmailAndPassword(auth, email, password);
-      Alert.alert("Cuenta creada", "Ahora puedes iniciar sesión");
-      navigation.goBack();
-    } catch (error) {
-      Alert.alert("Error", error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+  } catch (error) {
+    Alert.alert("Error", "No se pudo conectar al servidor");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <View style={styles.container}>
@@ -87,61 +107,54 @@ export default function Register({ navigation }) {
   );
 }
 
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0F172A",
-    padding: 24,
+    backgroundColor: "#000000",
+    padding: 28,
     justifyContent: "center",
   },
+
   title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: "#fff",
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: "#94A3B8",
+    fontSize: 30,
+    fontWeight: "800",
+    color: "#FFFFFF",
     marginBottom: 32,
+    letterSpacing: 1,
   },
+
   input: {
-    backgroundColor: "#1E293B",
-    color: "#fff",
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+    color: "#FFFFFF",
     padding: 16,
-    borderRadius: 12,
-    marginBottom: 16,
-    fontSize: 16,
-  },
-  showPassword: {
-    alignItems: "flex-end",
-    marginBottom: 24,
-  },
-  showText: {
-    color: "#38BDF8",
-    fontWeight: "600",
-  },
-  registerButton: {
-    backgroundColor: "#22C55E",
-    paddingVertical: 16,
     borderRadius: 14,
-    alignItems: "center",
-    marginBottom: 20,
-  },
-  registerText: {
-    color: "#022C22",
+    marginBottom: 18,
     fontSize: 16,
-    fontWeight: "bold",
   },
-  loginLink: {
-    color: "#CBD5E1",
+
+  registerButton: {
+    backgroundColor: "#FFFFFF",
+    paddingVertical: 16,
+    borderRadius: 16,
+    alignItems: "center",
+    marginTop: 8,
+    marginBottom: 22,
+  },
+
+  registerText: {
+    color: "#000000",
+    fontSize: 16,
+    fontWeight: "700",
+    letterSpacing: 0.5,
+  },
+
+  link: {
+    color: "#FFFFFF",
     textAlign: "center",
     fontSize: 14,
-  },
-  link: {
-    color: "#38BDF8",
-    fontWeight: "bold",
+    fontWeight: "600",
+    opacity: 0.8,
   },
 });

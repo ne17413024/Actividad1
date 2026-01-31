@@ -13,25 +13,41 @@ const Tab = createBottomTabNavigator();
 export default function TabNavigation() {
   return (
     <Tab.Navigator
-        screenOptions={({ route }) => ({
-        headerShown: false,
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
+  screenOptions={({ route }) => ({
+    headerShown: false,
 
-          if (route.name === "Home") {
-            iconName = focused ? "home" : "home-outline";
-          } else if (route.name === "Agregar") {
-            iconName = focused ? "add-circle-outline" : "add-circle-outline";
-          } else if (route.name === "Setting") {
-            iconName = focused ? "settings-outline" : "settings-outline";
-          }
+    tabBarStyle: {
+      backgroundColor: "#000000",
+      borderTopWidth: 1,
+      borderTopColor: "#FFFFFF",
+      height: 64,
+    },
 
-          return <Ionicons name={iconName} size={size} color={color} />;
-        },
-        tabBarActiveTintColor: "#38BDF8",
-        tabBarInactiveTintColor: "#94A3B8",
-      })}
-    >
+    tabBarLabelStyle: {
+      fontSize: 12,
+      fontWeight: "600",
+      marginBottom: 6,
+    },
+
+    tabBarIcon: ({ focused, color, size }) => {
+      let iconName;
+
+      if (route.name === "Home") {
+        iconName = focused ? "home" : "home-outline";
+      } else if (route.name === "Agregar") {
+        iconName = "add-circle-outline";
+      } else if (route.name === "Setting") {
+        iconName = "settings-outline";
+      }
+
+      return <Ionicons name={iconName} size={22} color={color} />;
+    },
+
+    tabBarActiveTintColor: "#FFFFFF",
+    tabBarInactiveTintColor: "#6B7280",
+  })}
+>
+
       <Tab.Screen name="Home" component={homeStack} />
       <Tab.Screen name="Setting" component={settingStack} />
       <Tab.Screen name="Agregar" component={agregar} />

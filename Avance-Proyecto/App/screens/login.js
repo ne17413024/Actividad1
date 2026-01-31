@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  Image 
 } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebaseConfig";
@@ -37,7 +38,16 @@ export default function Login({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bienvenido 👋</Text>
+      {/* LOGO */}
+      <View style={styles.logoContainer}>
+        <Image
+          source={require("../assets/icon.png")} // ajusta la ruta
+          style={styles.logo}
+          resizeMode="contain"
+        />
+      </View>
+
+      <Text style={styles.title}>Bienvenido</Text>
       <Text style={styles.subtitle}>Inicia sesión para continuar</Text>
 
       <TextInput
@@ -86,70 +96,96 @@ export default function Login({ navigation }) {
 }
 
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0F172A", // dark moderno
-    padding: 24,
+    backgroundColor: "#000000",
+    padding: 28,
     justifyContent: "center",
   },
+
+  logoContainer: {
+    alignItems: "center",
+    marginBottom: 30,
+  },
+
+  logo: {
+    width: 120,
+    height: 120,
+  },
+
+
   title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    color: "#fff",
-    marginBottom: 8,
+    fontSize: 30,
+    fontWeight: "800",
+    color: "#FFFFFF",
+    marginBottom: 6,
+    letterSpacing: 1,
   },
+
   subtitle: {
-    fontSize: 16,
-    color: "#94A3B8",
-    marginBottom: 32,
+    fontSize: 15,
+    color: "#BFBFBF",
+    marginBottom: 36,
   },
+
   input: {
-    backgroundColor: "#1E293B",
-    color: "#fff",
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+    color: "#FFFFFF",
     padding: 16,
-    borderRadius: 12,
-    marginBottom: 16,
+    borderRadius: 14,
+    marginBottom: 18,
     fontSize: 16,
   },
+
   passwordContainer: {
     flexDirection: "row",
-    backgroundColor: "#1E293B",
-    borderRadius: 12,
-    alignItems: "center",
-    paddingHorizontal: 16,
-    marginBottom: 24,
-  },
-  passwordInput: {
-    flex: 1,
-    color: "#fff",
-    paddingVertical: 16,
-    fontSize: 16,
-  },
-  showText: {
-    color: "#38BDF8",
-    fontWeight: "600",
-  },
-  loginButton: {
-    backgroundColor: "#38BDF8",
-    paddingVertical: 16,
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
     borderRadius: 14,
     alignItems: "center",
-    marginBottom: 20,
+    paddingHorizontal: 16,
+    marginBottom: 28,
   },
-  loginText: {
-    color: "#020617",
+
+  passwordInput: {
+    flex: 1,
+    color: "#FFFFFF",
+    paddingVertical: 16,
     fontSize: 16,
-    fontWeight: "bold",
   },
+
+  showText: {
+    color: "#FFFFFF",
+    fontWeight: "600",
+    opacity: 0.7,
+  },
+
+  loginButton: {
+    backgroundColor: "#FFFFFF",
+    paddingVertical: 16,
+    borderRadius: 16,
+    alignItems: "center",
+    marginBottom: 22,
+  },
+
+  loginText: {
+    color: "#000000",
+    fontSize: 16,
+    fontWeight: "700",
+    letterSpacing: 0.5,
+  },
+
   createAccount: {
-    color: "#CBD5E1",
+    color: "#BFBFBF",
     textAlign: "center",
     fontSize: 14,
   },
+
   link: {
-    color: "#38BDF8",
-    fontWeight: "bold",
+    color: "#FFFFFF",
+    fontWeight: "700",
   },
 });

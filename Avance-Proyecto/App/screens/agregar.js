@@ -194,77 +194,95 @@ export default function Agregar() {
   );
 }
 
-/* ================== STYLES ================== */
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    backgroundColor: "#0F172A",
+    padding: 24,
+    backgroundColor: "#000000",
   },
+
   titulo: {
     fontSize: 26,
-    fontWeight: "bold",
-    color: "#38BDF8",
+    fontWeight: "800",
+    color: "#FFFFFF",
     textAlign: "center",
-    marginBottom: 24,
+    marginBottom: 28,
+    letterSpacing: 1,
   },
+
   inputNombre: {
-    backgroundColor: "#1E293B",
-    color: "#fff",
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+    color: "#FFFFFF",
     padding: 18,
-    borderRadius: 14,
+    borderRadius: 16,
     fontSize: 18,
-    marginBottom: 24,
-    fontWeight: "bold",
+    marginBottom: 28,
+    fontWeight: "700",
   },
+
   card: {
-    backgroundColor: "#020617",
-    padding: 16,
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+    padding: 18,
     borderRadius: 18,
-    marginBottom: 20,
+    marginBottom: 22,
   },
+
   subtitulo: {
     fontSize: 16,
-    fontWeight: "bold",
-    color: "#fff",
-    marginBottom: 12,
+    fontWeight: "700",
+    color: "#FFFFFF",
+    marginBottom: 14,
   },
+
   input: {
-    backgroundColor: "#1E293B",
-    color: "#fff",
-    borderRadius: 12,
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+    color: "#FFFFFF",
+    borderRadius: 14,
     padding: 14,
-    marginBottom: 10,
+    marginBottom: 12,
     fontSize: 15,
   },
+
   dropdown: {
-    backgroundColor: "#1E293B",
-    borderColor: "#1E293B",
-    borderRadius: 12,
-    marginTop: 8,
-  },
-  dropdownContainer: {
-    backgroundColor: "#020617",
-    borderColor: "#1E293B",
-    borderRadius: 12,
-  },
-  botonAgregar: {
-    backgroundColor: "#22C55E",
-    padding: 16,
+    backgroundColor: "#000000",
+    borderColor: "#FFFFFF",
+    borderWidth: 1,
     borderRadius: 14,
+    marginTop: 10,
+  },
+
+  dropdownContainer: {
+    backgroundColor: "#000000",
+    borderColor: "#FFFFFF",
+    borderRadius: 14,
+  },
+
+  botonAgregar: {
+    backgroundColor: "#FFFFFF",
+    padding: 16,
+    borderRadius: 16,
     alignItems: "center",
     marginBottom: 14,
   },
+
   botonSubir: {
-    backgroundColor: "#38BDF8",
+    backgroundColor: "#FFFFFF",
     padding: 16,
-    borderRadius: 14,
+    borderRadius: 16,
     alignItems: "center",
     marginBottom: 40,
   },
+
   textoBoton: {
-    color: "#020617",
-    fontWeight: "bold",
+    color: "#000000",
+    fontWeight: "700",
     fontSize: 16,
+    letterSpacing: 0.4,
   },
 });
