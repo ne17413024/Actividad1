@@ -7,7 +7,7 @@ Esta aplicación full-stack permite a los usuarios crear, gestionar y estudiar g
 ## 👥 Integrantes
 
 - Natanael Jaime Janacua Elias
-- Narciso Guadalupe
+- Narciso Guadalupe Valadez Quintero
 - Rodrigo Hernandez Luna
 - Caleb de Leon
 
